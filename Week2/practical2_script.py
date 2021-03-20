@@ -35,12 +35,14 @@ def scale_bar(ax, location=(0.92, 0.95)):
     plt.text(sbx-24500, sby-4500, '0 km', transform=tmc, fontsize=8)
 
 
+outline = gpd.read_file('E:/GIS/GIS_Practicals/GIS_Course EGM722 Practicals/GitHub/egm722/Week2/data_files/NI_outline.shp')
+
+
 # load the datasets
-outline = gpd.read_file('data_files/NI_outline.shp')
-towns = gpd.read_file('data_files/Towns.shp')
-water = gpd.read_file('data_files/Water.shp')
-rivers = gpd.read_file('data_files/Rivers.shp')
-counties = gpd.read_file('data_files/Counties.shp')
+towns = gpd.read_file('E:/GIS/GIS_Practicals/GIS_Course EGM722 Practicals/GitHub/egm722/Week2/data_files/Towns.shp')
+water = gpd.read_file('E:/GIS/GIS_Practicals/GIS_Course EGM722 Practicals/GitHub/egm722/Week2/data_files/Water.shp')
+rivers = gpd.read_file('E:/GIS/GIS_Practicals/GIS_Course EGM722 Practicals/GitHub/egm722/Week2/data_files/Rivers.shp')
+counties = gpd.read_file('E:/GIS/GIS_Practicals/GIS_Course EGM722 Practicals/GitHub/egm722/Week2/data_files/Counties.shp')
 
 # create a figure of size 10x10 (representing the page size in inches)
 myFig = plt.figure(figsize=(10, 10))
@@ -128,6 +130,9 @@ for i, row in towns.iterrows():
     x, y = row.geometry.x, row.geometry.y
     plt.text(x, y, row['TOWN_NAME'].title(), fontsize=8, transform=myCRS) # use plt.text to place a label at x,y
 
-scale_bar(ax)
+scale_bar = (ax)
 
 myFig.savefig('map.png', bbox_inches='tight', dpi=300)
+myFig.plot()
+plt.show()
+
