@@ -133,6 +133,5 @@ for i, row in towns.iterrows():
 scale_bar = (ax)
 
 myFig.savefig('map.png', bbox_inches='tight', dpi=300)
-myFig.plot()
 plt.show()
 
